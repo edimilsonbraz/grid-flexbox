@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, ul, li, a, p {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+
+header {
+    background-color: #1d1e20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Quando a tela ficar bem pequina o li a cai pra baixo da logo */
+    padding: 20px 10%;
+}
+header img {
+    width: 200px;
+} 
+
+nav ul li a {
+    color: white;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: aqua;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 25px
+}
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* === FLEX-BOX ===*/
+.flex {
+    display: flex;
+    flex-wrap: wrap; /*joga o elemento pra baixo quando precisa*/
+    max-width:  800px;
+    margin: 0 auto; /* Ajusta o elemento no meio da pag */
+}
+
+.flex > div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+
+/* === CSS-GRID 1 ===*/
+.grid-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.grid-1 > div:nth-child(n + 4) { /* pega as divs apartir do quarto item*/
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 10px;
+   align-items: center;
+
+}
+
+.grid-1 > div.anuncio {
+    grid-column: 1;
+    grid-row: 2/5;
+    display: block;
+    border-top: 10px solid tomato;
+}
+
+
+/*=== FOOTER ===*/
+footer p {
+    font-size: .8rem;
+    color: aliceblue;
+    background-color: #000;
+    text-align: center;
+    padding: 28px;
+    margin-top: 80px;
+}
+
+
+/* === CSS-GRID 2 ===*/
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.sidebar > div {
+    margin-bottom: 10px;
+}
+
+/* === CSS-GRID 3 ===*/
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px;
+}
+.grid3-item:first-child {
+    grid-row: 1/3;
+}
+
+.grid3-item {
+    display: grid;
+}
+.grid3-item img {
+    grid-column: 1;
+    grid-row: 1/3;
+}
+.grid3-item p {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    grid-column: 1;
+    grid-row: 2/3;
+    align-self: end;
+}
+
+
+
+
+
+/*=== RESPONSIVIDADE ===*/
+
+/*responsividade Grid 1 */
+@media (max-width: 600px) {
+    .grid-1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-1 > div:nth-child(n + 4) {
+        display: block;
+    }
+
+    .grid-1 > div.anuncio {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+
+ /*responsividade Grid 2 */
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: flex;
+        overflow: scroll;
+    }
+    .sidebar > div {
+        flex: 1 0 200px;
+        margin: 0 10px
+    }
+}
